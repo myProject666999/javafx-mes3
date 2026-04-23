@@ -28,38 +28,52 @@
     </top>
 
     <left>
-        <VBox styleClass="sidebar" prefWidth="200" spacing="2">
-            <padding>
-                <Insets top="10" bottom="10"/>
-            </padding>
-
+        <VBox styleClass="sidebar" prefWidth="200" spacing="0">
             <VBox fx:id="sidebarMenu" spacing="2">
+                <padding>
+                    <Insets top="10" bottom="5" left="0" right="0"/>
+                </padding>
                 <Button styleClass="sidebar-button, active" text="🏠  控制台" onAction="#showDashboard"/>
-                
-                <Label fx:id="systemMenuLabel" text="系统管理" style="-fx-text-fill: #888; -fx-font-size: 11px; -fx-padding: 10 15 5 15;"/>
-                <Button fx:id="userMenuBtn" styleClass="sidebar-button" text="👥  用户管理" onAction="#showUserManagement"/>
-                <Button fx:id="roleMenuBtn" styleClass="sidebar-button" text="🎭  角色管理" onAction="#showRoleManagement"/>
-                <Button fx:id="permissionMenuBtn" styleClass="sidebar-button" text="🔑  权限管理" onAction="#showPermissionManagement"/>
-                
-                <Label fx:id="masterDataMenuLabel" text="主数据" style="-fx-text-fill: #888; -fx-font-size: 11px; -fx-padding: 10 15 5 15;"/>
-                <Button fx:id="uomMenuBtn" styleClass="sidebar-button" text="📏  计量单位" onAction="#showUnitOfMeasure"/>
+            </VBox>
 
-                <Label fx:id="productMenuLabel" text="产品管理" style="-fx-text-fill: #888; -fx-font-size: 11px; -fx-padding: 10 15 5 15;"/>
-                <Button fx:id="productCategoryMenuBtn" styleClass="sidebar-button" text="📁  物料产品分类" onAction="#showProductCategory"/>
-                <Button fx:id="productManagementMenuBtn" styleClass="sidebar-button" text="📦  物料产品管理" onAction="#showProductManagement"/>
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" 
+                       style="-fx-background-color: transparent; -fx-border-width: 0;"
+                       VBox.vgrow="ALWAYS">
+                <VBox spacing="2" style="-fx-background-color: transparent;">
+                    <padding>
+                        <Insets top="5" bottom="5" left="0" right="0"/>
+                    </padding>
 
-                <Label fx:id="workshopMenuLabel" text="车间管理" style="-fx-text-fill: #888; -fx-font-size: 11px; -fx-padding: 10 15 5 15;"/>
-                <Button fx:id="workshopMenuBtn" styleClass="sidebar-button" text="🏭  车间设置" onAction="#showWorkshop"/>
-                <Button fx:id="workstationMenuBtn" styleClass="sidebar-button" text="⚙️  工作站管理" onAction="#showWorkstation"/>
+                    <Label fx:id="systemMenuLabel" text="系统管理" style="-fx-text-fill: #888; -fx-font-size: 11px; -fx-padding: 10 15 5 15;"/>
+                    <Button fx:id="userMenuBtn" styleClass="sidebar-button" text="👥  用户管理" onAction="#showUserManagement"/>
+                    <Button fx:id="roleMenuBtn" styleClass="sidebar-button" text="🎭  角色管理" onAction="#showRoleManagement"/>
+                    <Button fx:id="permissionMenuBtn" styleClass="sidebar-button" text="🔑  权限管理" onAction="#showPermissionManagement"/>
+                    
+                    <Label fx:id="masterDataMenuLabel" text="主数据" style="-fx-text-fill: #888; -fx-font-size: 11px; -fx-padding: 10 15 5 15;"/>
+                    <Button fx:id="uomMenuBtn" styleClass="sidebar-button" text="📏  计量单位" onAction="#showUnitOfMeasure"/>
+                    <Button fx:id="supplierMenuBtn" styleClass="sidebar-button" text="🏪  供应商设置" onAction="#showSupplierManagement"/>
 
-                <Label fx:id="processMenuLabel" text="工艺管理" style="-fx-text-fill: #888; -fx-font-size: 11px; -fx-padding: 10 15 5 15;"/>
-                <Button fx:id="processMenuBtn" styleClass="sidebar-button" text="🔧  工序设置" onAction="#showProcess"/>
-                <Button fx:id="processRouteMenuBtn" styleClass="sidebar-button" text="📋  工序流程" onAction="#showProcessRoute"/>
+                    <Label fx:id="productMenuLabel" text="产品管理" style="-fx-text-fill: #888; -fx-font-size: 11px; -fx-padding: 10 15 5 15;"/>
+                    <Button fx:id="productCategoryMenuBtn" styleClass="sidebar-button" text="📁  物料产品分类" onAction="#showProductCategory"/>
+                    <Button fx:id="productManagementMenuBtn" styleClass="sidebar-button" text="📦  物料产品管理" onAction="#showProductManagement"/>
 
-                <Label fx:id="personalMenuLabel" text="个人设置" style="-fx-text-fill: #888; -fx-font-size: 11px; -fx-padding: 10 15 5 15;"/>
-                <Button styleClass="sidebar-button" text="🔐  修改密码" onAction="#showChangePassword"/>
-                
-                <Region VBox.vgrow="ALWAYS"/>
+                    <Label fx:id="workshopMenuLabel" text="车间管理" style="-fx-text-fill: #888; -fx-font-size: 11px; -fx-padding: 10 15 5 15;"/>
+                    <Button fx:id="workshopMenuBtn" styleClass="sidebar-button" text="🏭  车间设置" onAction="#showWorkshop"/>
+                    <Button fx:id="workstationMenuBtn" styleClass="sidebar-button" text="⚙️  工作站管理" onAction="#showWorkstation"/>
+
+                    <Label fx:id="processMenuLabel" text="工艺管理" style="-fx-text-fill: #888; -fx-font-size: 11px; -fx-padding: 10 15 5 15;"/>
+                    <Button fx:id="processMenuBtn" styleClass="sidebar-button" text="🔧  工序设置" onAction="#showProcess"/>
+                    <Button fx:id="processRouteMenuBtn" styleClass="sidebar-button" text="📋  工序流程" onAction="#showProcessRoute"/>
+
+                    <Label fx:id="customerMenuLabel" text="客户管理" style="-fx-text-fill: #888; -fx-font-size: 11px; -fx-padding: 10 15 5 15;"/>
+                    <Button fx:id="customerMenuBtn" styleClass="sidebar-button" text="👥  客户管理" onAction="#showCustomerManagement"/>
+
+                    <Label fx:id="personalMenuLabel" text="个人设置" style="-fx-text-fill: #888; -fx-font-size: 11px; -fx-padding: 10 15 5 15;"/>
+                    <Button styleClass="sidebar-button" text="🔐  修改密码" onAction="#showChangePassword"/>
+                </VBox>
+            </ScrollPane>
+
+            <VBox spacing="2">
                 <Separator style="-fx-padding: 5 10;"/>
                 <HBox alignment="CENTER_LEFT" spacing="10">
                     <padding>

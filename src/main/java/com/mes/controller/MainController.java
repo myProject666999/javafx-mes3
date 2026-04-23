@@ -88,6 +88,12 @@ public class MainController {
     private Button processRouteMenuBtn;
 
     @FXML
+    private Button customerMenuBtn;
+
+    @FXML
+    private Button supplierMenuBtn;
+
+    @FXML
     private Label systemMenuLabel;
 
     @FXML
@@ -101,6 +107,9 @@ public class MainController {
 
     @FXML
     private Label workshopMenuLabel;
+
+    @FXML
+    private Label customerMenuLabel;
 
     @FXML
     private Label personalMenuLabel;
@@ -133,6 +142,8 @@ public class MainController {
         boolean hasWorkstationPerm = authService.hasPermission("workstation:manage");
         boolean hasProcessPerm = authService.hasPermission("process:manage");
         boolean hasProcessRoutePerm = authService.hasPermission("process_route:manage");
+        boolean hasCustomerPerm = authService.hasPermission("customer:manage");
+        boolean hasSupplierPerm = authService.hasPermission("supplier:manage");
 
         userMenuBtn.setVisible(hasUserPerm);
         userMenuBtn.setManaged(hasUserPerm);
@@ -154,13 +165,18 @@ public class MainController {
         processMenuBtn.setManaged(hasProcessPerm);
         processRouteMenuBtn.setVisible(hasProcessRoutePerm);
         processRouteMenuBtn.setManaged(hasProcessRoutePerm);
+        customerMenuBtn.setVisible(hasCustomerPerm);
+        customerMenuBtn.setManaged(hasCustomerPerm);
+        supplierMenuBtn.setVisible(hasSupplierPerm);
+        supplierMenuBtn.setManaged(hasSupplierPerm);
 
         boolean hasSystemMenu = hasUserPerm || hasRolePerm || hasPermPerm;
         systemMenuLabel.setVisible(hasSystemMenu);
         systemMenuLabel.setManaged(hasSystemMenu);
 
-        masterDataMenuLabel.setVisible(hasUomPerm);
-        masterDataMenuLabel.setManaged(hasUomPerm);
+        boolean hasMasterDataMenu = hasUomPerm || hasSupplierPerm;
+        masterDataMenuLabel.setVisible(hasMasterDataMenu);
+        masterDataMenuLabel.setManaged(hasMasterDataMenu);
 
         boolean hasProductMenu = hasProductCategoryPerm || hasProductManagePerm;
         productMenuLabel.setVisible(hasProductMenu);
@@ -173,6 +189,9 @@ public class MainController {
         boolean hasProcessMenu = hasProcessPerm || hasProcessRoutePerm;
         processMenuLabel.setVisible(hasProcessMenu);
         processMenuLabel.setManaged(hasProcessMenu);
+
+        customerMenuLabel.setVisible(hasCustomerPerm);
+        customerMenuLabel.setManaged(hasCustomerPerm);
     }
 
     private void updateDashboard() {
@@ -277,6 +296,18 @@ public class MainController {
     public void showProcessRoute() {
         loadView("/fxml/process-route.fxml");
         setActiveButton(processRouteMenuBtn);
+    }
+
+    @FXML
+    public void showCustomerManagement() {
+        loadView("/fxml/customer-management.fxml");
+        setActiveButton(customerMenuBtn);
+    }
+
+    @FXML
+    public void showSupplierManagement() {
+        loadView("/fxml/supplier-management.fxml");
+        setActiveButton(supplierMenuBtn);
     }
 
     @FXML
