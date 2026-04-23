@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.mes.controller.ProductManagementController"
+           dividerPositions="0.25"
+           prefWidth="1200"
+           prefHeight="600">
+
+    <VBox spacing="10" style="-fx-background-color: #1e1e1e; -fx-padding: 10;">
+        <Label text="物料产品分类" style="-fx-text-fill: #cccccc; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+        <TreeView fx:id="categoryTree" VBox.vgrow="ALWAYS" style="-fx-background-color: #252526;"/>
+        <Button text="🔄 刷新" onAction="#refreshCategoryTree" styleClass="action-button"
+                style="-fx-background-color: #6c757d; -fx-text-fill: white;"/>
+    </VBox>
+
+    <VBox spacing="15" style="-fx-background-color: #1e1e1e; -fx-padding: 10;">
+        <HBox alignment="CENTER_LEFT" spacing="15">
+            <Label styleClass="content-header" text="物料产品管理"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="addButton" styleClass="action-button, add-button" text="➕ 新增" onAction="#showAddDialog"/>
+            <Button fx:id="editButton" styleClass="action-button, edit-button" text="✏️ 修改" onAction="#handleBatchEdit"/>
+            <Button fx:id="deleteButton" styleClass="action-button, delete-button" text="🗑️ 删除" onAction="#handleBatchDelete"/>
+        </HBox>
+
+        <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-background-color: #252526; -fx-background-radius: 8; -fx-padding: 15;">
+            <Label text="物料编码:" style="-fx-text-fill: #cccccc;"/>
+            <TextField fx:id="codeSearchField" promptText="请输入物料编码" styleClass="input-field" prefWidth="120"/>
+            <Label text="物料名称:" style="-fx-text-fill: #cccccc;"/>
+            <TextField fx:id="nameSearchField" promptText="请输入物料名称" styleClass="input-field" prefWidth="120"/>
+            <Label text="是否启用:" style="-fx-text-fill: #cccccc;"/>
+            <ComboBox fx:id="enabledSearchCombo" styleClass="input-field" prefWidth="120"/>
+            <Button styleClass="action-button" text="🔍 查询" onAction="#handleSearch"
+                    style="-fx-background-color: #007acc; -fx-text-fill: white;"/>
+            <Button styleClass="action-button" text="🔄 重置" onAction="#handleReset"
+                    style="-fx-background-color: #6c757d; -fx-text-fill: white;"/>
+        </HBox>
+
+        <TableView fx:id="productTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="selectColumn" text="选择" prefWidth="50">
+                </TableColumn>
+                <TableColumn fx:id="codeColumn" text="物料编码" prefWidth="100">
+                </TableColumn>
+                <TableColumn fx:id="nameColumn" text="物料名称" prefWidth="120">
+                </TableColumn>
+                <TableColumn fx:id="categoryColumn" text="分类" prefWidth="120">
+                </TableColumn>
+                <TableColumn fx:id="unitColumn" text="单位" prefWidth="60">
+                </TableColumn>
+                <TableColumn fx:id="specColumn" text="规格" prefWidth="100">
+                </TableColumn>
+                <TableColumn fx:id="stockRangeColumn" text="库存预警范围" prefWidth="100">
+                </TableColumn>
+                <TableColumn fx:id="enabledColumn" text="是否启用" prefWidth="80">
+                </TableColumn>
+                <TableColumn fx:id="actionColumn" text="操作" prefWidth="120">
+                </TableColumn>
+            </columns>
+        </TableView>
+    </VBox>
+</SplitPane>

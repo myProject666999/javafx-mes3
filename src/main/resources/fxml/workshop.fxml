@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.mes.controller.WorkshopController"
+      spacing="15">
+
+    <HBox alignment="CENTER_LEFT" spacing="15">
+        <Label styleClass="content-header" text="车间设置"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="exportButton" styleClass="action-button" text="📤 导出" onAction="#handleExport"
+                style="-fx-background-color: #28a745; -fx-text-fill: white;"/>
+        <Button fx:id="addButton" styleClass="action-button, add-button" text="➕ 新增" onAction="#showAddDialog"/>
+        <Button fx:id="editButton" styleClass="action-button, edit-button" text="✏️ 修改" onAction="#handleBatchEdit"/>
+        <Button fx:id="deleteButton" styleClass="action-button, delete-button" text="🗑️ 删除" onAction="#handleBatchDelete"/>
+    </HBox>
+
+    <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-background-color: #252526; -fx-background-radius: 8; -fx-padding: 15;">
+        <Label text="车间名称:" style="-fx-text-fill: #cccccc;"/>
+        <TextField fx:id="nameSearchField" promptText="请输入车间名称" styleClass="input-field" prefWidth="150"/>
+        <Label text="是否启用:" style="-fx-text-fill: #cccccc;"/>
+        <ComboBox fx:id="enabledSearchCombo" styleClass="input-field" prefWidth="120">
+            <items>
+            </items>
+        </ComboBox>
+        <Button styleClass="action-button" text="🔍 查询" onAction="#handleSearch"
+                style="-fx-background-color: #007acc; -fx-text-fill: white;"/>
+        <Button styleClass="action-button" text="🔄 重置" onAction="#handleReset"
+                style="-fx-background-color: #6c757d; -fx-text-fill: white;"/>
+    </HBox>
+
+    <TableView fx:id="workshopTable" prefHeight="500">
+        <columns>
+            <TableColumn fx:id="codeColumn" text="车间编码" prefWidth="100">
+            </TableColumn>
+            <TableColumn fx:id="nameColumn" text="车间名称" prefWidth="150">
+            </TableColumn>
+            <TableColumn fx:id="locationColumn" text="车间位置" prefWidth="150">
+            </TableColumn>
+            <TableColumn fx:id="managerColumn" text="负责人" prefWidth="100">
+            </TableColumn>
+            <TableColumn fx:id="descriptionColumn" text="描述" prefWidth="200">
+            </TableColumn>
+            <TableColumn fx:id="enabledColumn" text="是否启用" prefWidth="80">
+            </TableColumn>
+            <TableColumn fx:id="createTimeColumn" text="创建时间" prefWidth="150">
+            </TableColumn>
+            <TableColumn fx:id="actionColumn" text="操作" prefWidth="150">
+            </TableColumn>
+        </columns>
+    </TableView>
+</VBox>

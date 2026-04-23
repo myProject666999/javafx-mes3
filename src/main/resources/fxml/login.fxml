@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.mes.controller.LoginController"
+      stylesheets="/css/style.css"
+      styleClass="root"
+      alignment="CENTER">
+
+    <StackPane>
+        <VBox styleClass="login-container"
+              alignment="CENTER"
+              spacing="15"
+              maxWidth="380"
+              maxHeight="350">
+            <padding>
+                <Insets top="30" right="40" bottom="25" left="40"/>
+            </padding>
+
+            <HBox alignment="TOP_RIGHT" prefWidth="300" spacing="0">
+                <Button styleClass="window-button" text="─" onAction="#minimizeWindow"/>
+                <Button styleClass="window-button, close-button" text="✕" onAction="#closeWindow"/>
+            </HBox>
+
+            <VBox alignment="CENTER" spacing="8">
+                <Label styleClass="title-label" text="MES System"/>
+                <Label styleClass="subtitle-label" text="Manufacturing Execution System"/>
+            </VBox>
+
+            <VBox spacing="12" prefWidth="300">
+                <VBox spacing="5">
+                    <Label text="用户名" style="-fx-text-fill: #cccccc; -fx-font-size: 13px;"/>
+                    <TextField fx:id="usernameField" styleClass="input-field" promptText="请输入用户名"/>
+                </VBox>
+
+                <VBox spacing="5">
+                    <Label text="密码" style="-fx-text-fill: #cccccc; -fx-font-size: 13px;"/>
+                    <PasswordField fx:id="passwordField" styleClass="input-field" promptText="请输入密码"/>
+                </VBox>
+
+                <Label fx:id="errorLabel" styleClass="error-label"/>
+            </VBox>
+
+            <VBox alignment="CENTER" prefWidth="300">
+                <Button fx:id="loginButton" styleClass="login-button" text="登 录"
+                        prefWidth="280"
+                        prefHeight="40"
+                        onAction="#handleLogin"/>
+            </VBox>
+
+            <Label text="默认账号: admin / admin123"
+                   style="-fx-text-fill: #6c6c6c; -fx-font-size: 11px;"/>
+        </VBox>
+    </StackPane>
+</VBox>

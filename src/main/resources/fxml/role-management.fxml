@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.mes.controller.RoleManagementController"
+      spacing="20">
+
+    <HBox alignment="CENTER_LEFT" spacing="15">
+        <Label styleClass="content-header" text="角色管理"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="addRoleBtn" styleClass="action-button, add-button" text="➕ 添加角色" onAction="#showAddDialog"/>
+    </HBox>
+
+    <TableView fx:id="roleTable" prefHeight="500">
+        <columns>
+            <TableColumn text="ID" prefWidth="60">
+                <cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="角色名称" prefWidth="150">
+                <cellValueFactory><PropertyValueFactory property="name"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="描述" prefWidth="250">
+                <cellValueFactory><PropertyValueFactory property="description"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="权限" prefWidth="400">
+                <cellValueFactory><PropertyValueFactory property="permissionNames"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="roleActionColumn" text="操作" prefWidth="150">
+            </TableColumn>
+        </columns>
+    </TableView>
+</VBox>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.mes.controller.UserManagementController"
+      spacing="20">
+
+    <HBox alignment="CENTER_LEFT" spacing="15">
+        <Label styleClass="content-header" text="用户管理"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="addUserBtn" styleClass="action-button, add-button" text="➕ 添加用户" onAction="#showAddDialog"/>
+    </HBox>
+
+    <TableView fx:id="userTable" prefHeight="500">
+        <columns>
+            <TableColumn text="ID" prefWidth="50">
+                <cellValueFactory><PropertyValueFactory property="id"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="用户名" prefWidth="100">
+                <cellValueFactory><PropertyValueFactory property="username"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="真实姓名" prefWidth="100">
+                <cellValueFactory><PropertyValueFactory property="realName"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="邮箱" prefWidth="160">
+                <cellValueFactory><PropertyValueFactory property="email"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="电话" prefWidth="100">
+                <cellValueFactory><PropertyValueFactory property="phone"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="角色" prefWidth="130">
+                <cellValueFactory><PropertyValueFactory property="roleNames"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn text="状态" prefWidth="60">
+                <cellValueFactory><PropertyValueFactory property="enabledText"/></cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="actionColumn" text="操作" prefWidth="250">
+            </TableColumn>
+        </columns>
+    </TableView>
+</VBox>
